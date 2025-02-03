@@ -1,0 +1,12 @@
+FROM public.ecr.aws/lambda/python:3.10
+
+COPY requirements.txt /opt/requirements.txt
+RUN pip install -r /opt/requirements.txt
+RUN pip install --force-reinstall -v "numpy==1.25.2"
+
+COPY src/downloadWeights.py /opt/downloadWeights.py
+RUN python /opt/downloadWeights.py
+
+COPY src/lambda.py ${LAMBDA_TASK_ROOT}
+
+CMD ["lambda.lambda_handler"]
