@@ -1,33 +1,48 @@
-## Project 2: Hyper-parameter optimization
+# Project 3: Inference Optimization
 
-The goal of this homework will be to familiarize yourself with Pytorch Lightning which serves as a tool for organization of all-things related to training (this is a semi-quote) and perform hyper-parameter optimization.
+The focus of this project is on optimizing inference, specifically aimed at reducing the time required for making predictions by decreasing the number of computations involved.
 
-If it comes to Pytorch Lightning this will be one time, where it is required to use this particular package without option to chose any other, as I feel there are no other alternatives, (at least for Pytorch). Of course I'm open to proving me wrong.
+## Optimization Approaches
 
-### Example flow to complete the homework:
+We will explore the following methods to achieve inference optimization:
 
-* Prepare a training script of any chosen model in Pytorch Lightning. To achieve that you need to create two modules: Data Module and Lightning Module
-* Add model monitoring using built-in Pytorch Lighting callback for a chosen monitoring tool, for instance Wandb or MLFlow.
-* Validate Model Learning: Confirm the model does in-fact learn by comparison of training to validation loss curve.
-* Implement optimization of any chosen (or group of parameters) using a chosen optimization package. (I recommend Optuna or RayTune)
+- **Model Quantization** (0.25 points)
+- **Model Weights Pruning** (0.25 points)
+- **Layer Pruning** (0.5 points)
+- **Optimized Inference Libraries** (e.g., ONNX) (0.25 points)
+- **Knowledge Distillation** (0.5 points)
+
+## Objective
+
+Your task is to implement these optimization methods on a selected model architecture (For example:  the one from Project 2).
+
+### Requirements:
+1. **Calculate and Compare Metrics**:
+   - Use an reasonable metric (e.g., F1 score for classification tasks) to assess both the unoptimized and optimized models.
+   - Measure and report the difference in inference time for each method applied.
+
+2. **Multiple Methods**:
+   - If applying multiple methods, assess the combined impact on both inference time and model performance.
+
+3. **Present Results**:
+   - Organize your findings in a clear format, such as a table or chart, to highlight changes in performance and inference time.
+
+## Class Presentation
+
+During class, you will be asked to present:
+- Which optimization methods you implemented.
+- How each method (as well as in combination)  affected inference time and model accuracy.
+
+## Submission Guidelines
+
+- Please don’t copy outright whole solutions, like the one linked below.
+- Please upload your code to a repository. 
+- This homework can grant you up to **1 point maximum.**
+- **Deadline**: November 27, 2024
 
 
-### Bonus point
-1 Bonus points will be applied to groups who will dockerize the Pytorch Lightning Trainer, and enable hyper-parameter optimization in parallel with customized logging to a chosen model monitoring Service.
-
-Please note: Optuna offers a callback that automatically logs your run history to a chosen model monitoring tool, but the goal of this task is to enable custom model monitoring in parallel, which requires for the training runs to be in separate processes.  (Access to multiple GPUs is not required)
-
-### Additional organization information:
-* If possible, please don’t copy outright whole solutions, like the one linked below.
-* Please upload your code to a repository.
-* Feel free to use models from any of your previous or future (like Master's degree) projects.
-* Deadline: Two week from now
-
-
-
-### Useful links:
-* https://lightning.ai/lightning-ai/studios/image-segmentation-with-pytorch-lightning
-* https://lightning.ai/docs/pytorch/stable/api/lightning.pytorch.loggers.wandb.html
-* https://freedium.cfd/https://pub.aimind.so/optimizing-hyperparameters-with-optuna-a-hands-on-tutorial-bb8e2ffd1801
-* https://github.com/optuna/optuna-examples/blob/main/pytorch/pytorch_lightning_simple.py
-* https://optuna.readthedocs.io/en/stable/tutorial/10_key_features/004_distributed.html
+## Useful links:
+- https://pytorch.org/tutorials/intermediate/pruning_tutorial.html 
+- https://pytorch.org/tutorials/beginner/knowledge_distillation_tutorial.html 
+- https://pytorch.org/docs/stable/quantization.html
+- https://onnx.ai/
